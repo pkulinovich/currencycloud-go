@@ -1,1 +1,1 @@
-# currencycloud-go
+# Currencycloud API v2 Go client
