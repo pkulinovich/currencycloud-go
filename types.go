@@ -16,7 +16,7 @@ type (
 		apiKey         string
 		env            Environment
 		logger         io.Writer
-		authToken      *AuthTokenResponse
+		authToken      string
 		tokenExpiresAt time.Time
 	}
 

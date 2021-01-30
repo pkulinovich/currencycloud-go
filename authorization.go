@@ -23,7 +23,7 @@ func (c *Client) Login(ctx context.Context) (*AuthTokenResponse, error) {
 	err = c.Send(req, resp)
 
 	if resp.AuthToken != "" {
-		c.authToken = resp
+		c.SetAuthToken(resp.AuthToken)
 	}
 
 	return resp, err
@@ -31,7 +31,7 @@ func (c *Client) Login(ctx context.Context) (*AuthTokenResponse, error) {
 
 // Logout to retire its authentication token early rather
 func (c *Client) Logout(ctx context.Context) error {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, c.applyApiBaseUrl(EndpointLogin), nil)
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, c.applyApiBaseUrl(EndpointLogout), nil)
 	if err != nil {
 		return err
 	}

@@ -89,20 +89,14 @@ func (c *Client) Send(req *http.Request, v interface{}) error {
 func (c *Client) SendWithAuth(req *http.Request, v interface{}) error {
 	c.Lock() // we don't need to `defer c.Unlock()` because we need `c.Send(...)`
 
-	if c.authToken != nil {
+	if c.authToken != "" {
 		if !c.tokenExpiresAt.IsZero() && c.tokenExpiresAt.Sub(time.Now()) < ExpiresInLimit {
 			if _, err := c.Login(req.Context()); err != nil {
 				c.Unlock()
 				return err
 			}
 		}
-
-		// Tokens expire after 30 minutes of inactivity.
-		c.tokenExpiresAt = time.Now().Add(time.Minute * 30)
-
-		// TODO: Token requests are limited to 10 calls per minute.
-
-		req.Header.Set("X-Auth-Token", c.authToken.AuthToken)
+		req.Header.Set("X-Auth-Token", c.authToken)
 	}
 
 	c.Unlock() // Unlock the client mutex before sending the request
@@ -111,9 +105,12 @@ func (c *Client) SendWithAuth(req *http.Request, v interface{}) error {
 
 // SetAuthToken sets saved token to current client
 func (c *Client) SetAuthToken(token string) {
-	c.authToken = &AuthTokenResponse{
-		AuthToken: token,
-	}
+	c.authToken = token
+
+	// Tokens expire after 30 minutes of inactivity.
+	c.tokenExpiresAt = time.Now().Add(time.Minute * 30)
+
+	// TODO: Token requests are limited to 10 calls per minute.
 }
 
 // SetLog will set/change the output destination.

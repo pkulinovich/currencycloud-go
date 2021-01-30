@@ -6,6 +6,7 @@ type Endpoint string
 
 const (
 	EndpointLogin             Endpoint = "authenticate/api"
+	EndpointLogout            Endpoint = "authenticate/close_session"
 	EndpointGetBalance        Endpoint = "balances/%s"
 	EndpointFindBalances      Endpoint = "balances/find"
 	EndpointTopUpBalance      Endpoint = "balances/top_up_margin"
