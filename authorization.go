@@ -16,7 +16,7 @@ func (c *Client) Login(ctx context.Context) (*AuthTokenResponse, error) {
 		return &AuthTokenResponse{}, err
 	}
 
-	req.Header.Set("Content-type", "application/x-www-form-urlencoded")
+	req.Header.Set("Content-type", HeaderFormUrlencoded)
 
 	response := &AuthTokenResponse{}
 

@@ -5,10 +5,13 @@ import "time"
 type Endpoint string
 
 const (
-	EndpointLogin        Endpoint = "authenticate/api"
-	EndpointGetBalance   Endpoint = "balances/%s"
-	EndpointFindBalances Endpoint = "balances/find"
-	EndpointTopUpBalance Endpoint = "balances/top_up_margin"
+	EndpointLogin             Endpoint = "authenticate/api"
+	EndpointGetBalance        Endpoint = "balances/%s"
+	EndpointFindBalances      Endpoint = "balances/find"
+	EndpointTopUpBalance      Endpoint = "balances/top_up_margin"
+	EndpointGetBeneficiary    Endpoint = "beneficiaries/%s"
+	EndpointCreateBeneficiary Endpoint = "beneficiaries/create"
+	EndpointFindBeneficiaries Endpoint = "beneficiaries/find"
 )
 
 type Environment string
@@ -21,6 +24,7 @@ const (
 
 const (
 	HeaderContentTypeApplicationJson string = "application/json"
+	HeaderFormUrlencoded             string = "application/x-www-form-urlencoded"
 	HeaderUserAgent                  string = "CurrencyCloud-Go-http-client/2.0"
 )
 
