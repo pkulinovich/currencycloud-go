@@ -13,6 +13,9 @@ const (
 	EndpointGetBeneficiary    Endpoint = "beneficiaries/%s"
 	EndpointCreateBeneficiary Endpoint = "beneficiaries/create"
 	EndpointFindBeneficiaries Endpoint = "beneficiaries/find"
+	EndpointCreatePayment     Endpoint = "payments/create"
+	EndpointGetPayment        Endpoint = "payments/%s"
+	EndpointUpdatePayment     Endpoint = "payments/%s"
 )
 
 type Environment string

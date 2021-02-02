@@ -157,6 +157,45 @@ type (
 		Pagination    *Pagination            `json:"pagination,omitempty"`
 	}
 
+	CreatePaymentRequest struct {
+		Currency      string `json:"currency,omitempty"`
+		BeneficiaryID string `json:"beneficiary_id,omitempty"`
+		Amount        string `json:"amount,omitempty"`
+		Reason        string `json:"reason,omitempty"`
+		Reference     string `json:"reference,omitempty"`
+	}
+
+	PaymentResponse struct {
+		ID                         string `json:"id,omitempty"`
+		Amount                     string `json:"amount,omitempty"`
+		BeneficiaryID              string `json:"beneficiary_id,omitempty"`
+		Currency                   string `json:"currency,omitempty"`
+		Reference                  string `json:"reference,omitempty"`
+		Reason                     string `json:"reason,omitempty"`
+		Status                     string `json:"status,omitempty"`
+		CreatorContactID           string `json:"creator_contact_id,omitempty"`
+		PaymentType                string `json:"payment_type,omitempty"`
+		PaymentDate                string `json:"payment_date,omitempty"`
+		TransferredAt              string `json:"transferred_at,omitempty"`
+		AuthorisationStepsRequired string `json:"authorisation_steps_required,omitempty"`
+		LastUpdaterContactID       string `json:"last_updater_contact_id,omitempty"`
+		ShortReference             string `json:"short_reference,omitempty"`
+		ConversionID               string `json:"conversion_id,omitempty"`
+		FailureReason              string `json:"failure_reason,omitempty"`
+		PayerID                    string `json:"payer_id,omitempty"`
+		PayerDetailsSource         string `json:"payer_details_source,omitempty"`
+		CreatedAt                  string `json:"created_at,omitempty"`
+		UpdatedAt                  string `json:"updated_at,omitempty"`
+		PaymentGroupID             string `json:"payment_group_id,omitempty"`
+		UniqueRequestID            string `json:"unique_request_id,omitempty"`
+		FailureReturnedAmount      string `json:"failure_returned_amount,omitempty"`
+		UltimateBeneficiaryName    string `json:"ultimate_beneficiary_name,omitempty"`
+		PurposeCode                string `json:"purpose_code,omitempty"`
+		ChargeType                 string `json:"charge_type,omitempty"`
+		FeeAmount                  string `json:"fee_amount,omitempty"`
+		FeeCurrency                string `json:"fee_currency,omitempty"`
+	}
+
 	Pagination struct {
 		TotalEntries uint64 `json:"total_entries,omitempty"`
 		TotalPages   uint64 `json:"total_pages,omitempty"`
