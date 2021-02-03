@@ -12,9 +12,9 @@ type (
 	Client struct {
 		sync.Mutex
 		client         *http.Client
-		loginID        string
-		apiKey         string
-		env            Environment
+		LoginID        string
+		ApiKey         string
+		Env            Environment
 		logger         io.Writer
 		authToken      string
 		tokenExpiresAt time.Time

@@ -22,9 +22,9 @@ func NewClient(loginID string, apiKey string, env string) (*Client, error) {
 
 	return &Client{
 		client:  &http.Client{},
-		loginID: loginID,
-		apiKey:  apiKey,
-		env:     Environment(env),
+		LoginID: loginID,
+		ApiKey:  apiKey,
+		Env:     Environment(env),
 	}, nil
 }
 
@@ -121,13 +121,13 @@ func (c *Client) SetLogger(logger io.Writer) {
 // GetCredentials retrieve credentials
 func (c *Client) GetCredentials() url.Values {
 	v := url.Values{}
-	v.Set("login_id", c.loginID)
-	v.Set("api_key", c.apiKey)
+	v.Set("login_id", c.LoginID)
+	v.Set("api_key", c.ApiKey)
 	return v
 }
 
 func (c *Client) applyApiBaseUrl(path Endpoint) string {
-	return fmt.Sprintf("%s%s", urls[c.env], path)
+	return fmt.Sprintf("%s%s", urls[c.Env], path)
 }
 
 // log will dump request and response to the log file
