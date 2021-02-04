@@ -15,6 +15,7 @@ type (
 		LoginID        string
 		ApiKey         string
 		Env            Environment
+		URL            string
 		logger         io.Writer
 		authToken      string
 		tokenExpiresAt time.Time

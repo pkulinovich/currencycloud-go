@@ -8,25 +8,22 @@ import (
 
 // Login is the Currencycloud API authentication and authorization endpoint
 func (c *Client) Login(ctx context.Context) (*AuthTokenResponse, error) {
-	credentials := c.GetCredentials()
 	resp := &AuthTokenResponse{}
 
-	buf := bytes.NewBuffer([]byte(credentials.Encode()))
-
-	req, err := http.NewRequestWithContext(ctx, "POST", c.applyApiBaseUrl(EndpointLogin), buf)
+	buf := bytes.NewBuffer([]byte(c.GetCredentials().Encode()))
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, c.applyApiBaseUrl(EndpointLogin), buf)
 	if err != nil {
 		return resp, err
 	}
-
 	req.Header.Set("Content-type", HeaderFormUrlencoded)
 
-	err = c.Send(req, resp)
-
-	if resp.AuthToken != "" {
-		c.SetAuthToken(resp.AuthToken)
+	if err = c.Send(req, resp); err != nil {
+		return resp, err
 	}
 
-	return resp, err
+	c.SetAuthToken(resp.AuthToken)
+
+	return resp, nil
 }
 
 // Logout to retire its authentication token early rather

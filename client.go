@@ -126,8 +126,15 @@ func (c *Client) GetCredentials() url.Values {
 	return v
 }
 
+func (c *Client) SetUrl(url string) {
+	c.URL = url
+}
+
 func (c *Client) applyApiBaseUrl(path Endpoint) string {
-	return fmt.Sprintf("%s%s", urls[c.Env], path)
+	if c.URL == "" {
+		c.URL = urls[c.Env]
+	}
+	return fmt.Sprintf("%s%s", c.URL, path)
 }
 
 // log will dump request and response to the log file

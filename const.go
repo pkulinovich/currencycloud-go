@@ -5,17 +5,17 @@ import "time"
 type Endpoint string
 
 const (
-	EndpointLogin             Endpoint = "authenticate/api"
-	EndpointLogout            Endpoint = "authenticate/close_session"
-	EndpointGetBalance        Endpoint = "balances/%s"
-	EndpointFindBalances      Endpoint = "balances/find"
-	EndpointTopUpBalance      Endpoint = "balances/top_up_margin"
-	EndpointGetBeneficiary    Endpoint = "beneficiaries/%s"
-	EndpointCreateBeneficiary Endpoint = "beneficiaries/create"
-	EndpointFindBeneficiaries Endpoint = "beneficiaries/find"
-	EndpointCreatePayment     Endpoint = "payments/create"
-	EndpointGetPayment        Endpoint = "payments/%s"
-	EndpointUpdatePayment     Endpoint = "payments/%s"
+	EndpointLogin             Endpoint = "/authenticate/api"
+	EndpointLogout            Endpoint = "/authenticate/close_session"
+	EndpointGetBalance        Endpoint = "/balances/%s"
+	EndpointFindBalances      Endpoint = "/balances/find"
+	EndpointTopUpBalance      Endpoint = "/balances/top_up_margin"
+	EndpointGetBeneficiary    Endpoint = "/beneficiaries/%s"
+	EndpointCreateBeneficiary Endpoint = "/beneficiaries/create"
+	EndpointFindBeneficiaries Endpoint = "/beneficiaries/find"
+	EndpointCreatePayment     Endpoint = "/payments/create"
+	EndpointGetPayment        Endpoint = "/payments/%s"
+	EndpointUpdatePayment     Endpoint = "/payments/%s"
 )
 
 type Environment string
