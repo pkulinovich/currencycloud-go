@@ -36,6 +36,22 @@ func (c *Client) CreateBeneficiary(ctx context.Context, data *CreateBeneficiaryR
 	return resp, err
 }
 
+// UpdateBeneficiary updates a beneficiary
+func (c *Client) UpdateBeneficiary(ctx context.Context, id string, data *UpdateBeneficiaryRequest) (*BeneficiaryResponse, error) {
+	resp := &BeneficiaryResponse{}
+
+	url := fmt.Sprintf(c.applyApiBaseUrl(EndpointUpdateBeneficiary), id)
+
+	req, err := c.NewRequest(ctx, http.MethodPost, url, data)
+	if err != nil {
+		return resp, err
+	}
+
+	err = c.SendWithAuth(req, resp)
+
+	return resp, err
+}
+
 // FindBeneficiaries find beneficiaries attached to the account or any sub-account owned by the authenticating user.
 func (c *Client) FindBeneficiaries(ctx context.Context, params *FindBeneficiariesRequest) (*FindBeneficiariesResponse, error) {
 	response := &FindBeneficiariesResponse{}
@@ -54,4 +70,20 @@ func (c *Client) FindBeneficiaries(ctx context.Context, params *FindBeneficiarie
 	err = c.SendWithAuth(req, response)
 
 	return response, err
+}
+
+// DeleteBeneficiary remove a beneficiary
+func (c *Client) DeleteBeneficiary(ctx context.Context, id string) (*BeneficiaryResponse, error) {
+	resp := &BeneficiaryResponse{}
+
+	url := fmt.Sprintf(c.applyApiBaseUrl(EndpointDeleteBeneficiary), id)
+
+	req, err := c.NewRequest(ctx, http.MethodPost, url, nil)
+	if err != nil {
+		return resp, err
+	}
+
+	err = c.SendWithAuth(req, resp)
+
+	return resp, err
 }

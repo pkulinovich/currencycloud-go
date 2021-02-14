@@ -11,6 +11,8 @@ const (
 	EndpointFindBalances      Endpoint = "/balances/find"
 	EndpointTopUpBalance      Endpoint = "/balances/top_up_margin"
 	EndpointGetBeneficiary    Endpoint = "/beneficiaries/%s"
+	EndpointDeleteBeneficiary Endpoint = "/beneficiaries/%s/delete"
+	EndpointUpdateBeneficiary Endpoint = "/beneficiaries/%s"
 	EndpointCreateBeneficiary Endpoint = "/beneficiaries/create"
 	EndpointFindBeneficiaries Endpoint = "/beneficiaries/find"
 	EndpointCreatePayment     Endpoint = "/payments/create"
