@@ -35,3 +35,19 @@ func (c *Client) CreatePayment(ctx context.Context, data *CreatePaymentRequest) 
 
 	return resp, err
 }
+
+// DeletePayment delete a payment. On success, returns the final payment record state.
+func (c *Client) DeletePayment(ctx context.Context, id string) (*PaymentResponse, error) {
+	resp := &PaymentResponse{}
+
+	url := fmt.Sprintf(c.applyApiBaseUrl(EndpointDeletePayment), id)
+
+	req, err := c.NewRequest(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return resp, err
+	}
+
+	err = c.SendWithAuth(req, resp)
+
+	return resp, err
+}

@@ -16,6 +16,7 @@ const (
 	EndpointCreateBeneficiary Endpoint = "/beneficiaries/create"
 	EndpointFindBeneficiaries Endpoint = "/beneficiaries/find"
 	EndpointCreatePayment     Endpoint = "/payments/create"
+	EndpointDeletePayment     Endpoint = "/payments/%s/delete"
 	EndpointGetPayment        Endpoint = "/payments/%s"
 	EndpointUpdatePayment     Endpoint = "/payments/%s"
 )
