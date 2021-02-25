@@ -231,6 +231,11 @@ type (
 		FeeCurrency                string `json:"fee_currency,omitempty"`
 	}
 
+	RatesResponse struct {
+		Rates       map[string][]string `json:"rates,omitempty"`
+		Unavailable []string            `json:"unavailable,omitempty"`
+	}
+
 	Pagination struct {
 		TotalEntries uint64 `json:"total_entries,omitempty"`
 		TotalPages   uint64 `json:"total_pages,omitempty"`
