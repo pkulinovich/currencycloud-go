@@ -1,7 +1,7 @@
 package currencycloud_go
 
 import (
-	"fmt"
+	"encoding/json"
 	"io"
 	"net/http"
 	"sync"
@@ -256,5 +256,6 @@ type (
 )
 
 func (r *ErrorResponse) Error() string {
-	return fmt.Sprintf("%v %v: %d %s, %+v", r.Response.Request.Method, r.Response.Request.URL, r.Response.StatusCode, r.ErrorCode, r.ErrorMessages)
+	res, _ := json.Marshal(r)
+	return string(res)
 }
