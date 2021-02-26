@@ -42,7 +42,7 @@ func (c *Client) DeletePayment(ctx context.Context, id string) (*PaymentResponse
 
 	url := fmt.Sprintf(c.applyApiBaseUrl(EndpointDeletePayment), id)
 
-	req, err := c.NewRequest(ctx, http.MethodGet, url, nil)
+	req, err := c.NewRequest(ctx, http.MethodPost, url, nil)
 	if err != nil {
 		return resp, err
 	}
