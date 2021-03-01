@@ -54,22 +54,22 @@ func (c *Client) UpdateBeneficiary(ctx context.Context, id string, data *UpdateB
 
 // FindBeneficiaries find beneficiaries attached to the account or any sub-account owned by the authenticating user.
 func (c *Client) FindBeneficiaries(ctx context.Context, params *FindBeneficiariesRequest) (*FindBeneficiariesResponse, error) {
-	response := &FindBeneficiariesResponse{}
+	resp := &FindBeneficiariesResponse{}
 
 	req, err := c.NewRequest(ctx, http.MethodGet, c.applyApiBaseUrl(EndpointFindBeneficiaries), nil)
 	if err != nil {
-		return response, err
+		return resp, err
 	}
 
 	q, err := QueryStruct(params)
 	if err != nil {
-		return response, err
+		return resp, err
 	}
 	req.URL.RawQuery = q.Encode()
 
-	err = c.SendWithAuth(req, response)
+	err = c.SendWithAuth(req, resp)
 
-	return response, err
+	return resp, err
 }
 
 // DeleteBeneficiary remove a beneficiary
