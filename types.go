@@ -253,7 +253,7 @@ type (
 		ClientRate           string `json:"client_rate,omitempty"`
 		PartnerRate          string `json:"partner_rate,omitempty"`
 		CoreRate             string `json:"core_rate,omitempty"`
-		DepositRequired      string `json:"deposit_required,omitempty"`
+		DepositRequired      bool   `json:"deposit_required,omitempty"`
 		DepositAmount        string `json:"deposit_amount,omitempty"`
 		DepositCurrency      string `json:"deposit_currency,omitempty"`
 		MidMarketRate        string `json:"mid_market_rate,omitempty"`
