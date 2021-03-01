@@ -198,6 +198,7 @@ type (
 		Amount        string `json:"amount,omitempty"`
 		Reason        string `json:"reason,omitempty"`
 		Reference     string `json:"reference,omitempty"`
+		PaymentType   string `json:"payment_type,omitempty"`
 	}
 
 	PaymentResponse struct {
@@ -229,6 +230,33 @@ type (
 		ChargeType                 string `json:"charge_type,omitempty"`
 		FeeAmount                  string `json:"fee_amount,omitempty"`
 		FeeCurrency                string `json:"fee_currency,omitempty"`
+	}
+
+	GetDetailedRatesRequest struct {
+		OnBehalfOf               string `json:"on_behalf_of,omitempty"`
+		BuyCurrency              string `json:"buy_currency,omitempty"`
+		SellCurrency             string `json:"sell_currency,omitempty"`
+		FixedSide                string `json:"fixed_side,omitempty"`
+		Amount                   string `json:"amount,omitempty"`
+		ConversionDate           string `json:"conversion_date,omitempty"`
+		ConversionDatePreference string `json:"conversion_date_preference,omitempty"`
+	}
+
+	DetailedRatesResponse struct {
+		SettlementCutOffTime string `json:"settlement_cut_off_time,omitempty"`
+		CurrencyPair         string `json:"currency_pair,omitempty"`
+		ClientBuyCurrency    string `json:"client_buy_currency,omitempty"`
+		ClientSellCurrency   string `json:"client_sell_currency,omitempty"`
+		ClientBuyAmount      string `json:"client_buy_amount,omitempty"`
+		ClientSellAmount     string `json:"client_sell_amount,omitempty"`
+		FixedSide            string `json:"fixed_side,omitempty"`
+		ClientRate           string `json:"client_rate,omitempty"`
+		PartnerRate          string `json:"partner_rate,omitempty"`
+		CoreRate             string `json:"core_rate,omitempty"`
+		DepositRequired      string `json:"deposit_required,omitempty"`
+		DepositAmount        string `json:"deposit_amount,omitempty"`
+		DepositCurrency      string `json:"deposit_currency,omitempty"`
+		MidMarketRate        string `json:"mid_market_rate,omitempty"`
 	}
 
 	RatesResponse struct {
