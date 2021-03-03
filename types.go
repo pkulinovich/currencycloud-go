@@ -160,6 +160,31 @@ type (
 		BeneficiaryExternalReference   string   `json:"beneficiary_external_reference,omitempty"`
 	}
 
+	BeneficiaryRequirements struct {
+		PaymentType                string `json:"payment_type,omitempty"`
+		BeneficiaryEntityType      string `json:"beneficiary_entity_type,omitempty"`
+		BeneficiaryAddress         string `json:"beneficiary_address,omitempty"`
+		BeneficiaryCity            string `json:"beneficiary_city,omitempty"`
+		BeneficiaryCountry         string `json:"beneficiary_country,omitempty"`
+		BeneficiaryFirstName       string `json:"beneficiary_first_name,omitempty"`
+		BeneficiaryLastName        string `json:"beneficiary_last_name,omitempty"`
+		BeneficiaryCompanyName     string `json:"beneficiary_company_name,omitempty"`
+		BeneficiaryPostcode        string `json:"beneficiary_postcode,omitempty"`
+		BeneficiaryStateOrProvince string `json:"beneficiary_state_or_province,omitempty"`
+		BicSwift                   string `json:"bic_swift,omitempty"`
+		Iban                       string `json:"iban,omitempty"`
+		AcctNumber                 string `json:"acct_number,omitempty"`
+		SortCode                   string `json:"sort_code,omitempty"`
+		Aba                        string `json:"aba,omitempty"`
+		BsbCode                    string `json:"bsb_code,omitempty"`
+		InstitutionNo              string `json:"institution_no,omitempty"`
+		BankCode                   string `json:"bank_code,omitempty"`
+		BranchCode                 string `json:"branch_code,omitempty"`
+		Clabe                      string `json:"clabe,omitempty"`
+		Cnaps                      string `json:"cnaps,omitempty"`
+		Ifsc                       string `json:"ifsc,omitempty"`
+	}
+
 	FindBeneficiariesRequest struct {
 		OnBehalfOf                 string `json:"on_behalf_of,omitempty"`
 		BankAccountHolderName      string `json:"bank_account_holder_name,omitempty"`
@@ -262,6 +287,16 @@ type (
 	RatesResponse struct {
 		Rates       map[string][]string `json:"rates,omitempty"`
 		Unavailable []string            `json:"unavailable,omitempty"`
+	}
+
+	GetBeneficiaryRequirementsRequest struct {
+		Currency           string `json:"currency"`
+		BankAccountCountry string `json:"bank_account_country"`
+		BeneficiaryCountry string `json:"beneficiary_country,omitempty"`
+	}
+
+	GetBeneficiaryRequirementsResponse struct {
+		Details []*BeneficiaryRequirements `json:"details"`
 	}
 
 	Pagination struct {
