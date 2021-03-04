@@ -224,6 +224,7 @@ type (
 		Reason        string `json:"reason,omitempty"`
 		Reference     string `json:"reference,omitempty"`
 		PaymentType   string `json:"payment_type,omitempty"`
+		PurposeCode   string `json:"purpose_code,omitempty"`
 	}
 
 	PaymentResponse struct {
@@ -297,6 +298,24 @@ type (
 
 	GetBeneficiaryRequirementsResponse struct {
 		Details []*BeneficiaryRequirements `json:"details"`
+	}
+
+	GetPaymentPurposeCodesRequest struct {
+		Currency           string `json:"currency"`
+		BankAccountCountry string `json:"bank_account_country"`
+		EntityType         string `json:"entity_type"`
+	}
+
+	GetPaymentPurposeCodesResponse struct {
+		PurposeCodes []*PaymentPurposeCode `json:"purpose_codes"`
+	}
+
+	PaymentPurposeCode struct {
+		BankAccountCountry string `json:"bank_account_country"`
+		Currency           string `json:"currency"`
+		EntityType         string `json:"entity_type"`
+		PurposeCode        string `json:"purpose_code"`
+		PurposeDescription string `json:"purpose_description"`
 	}
 
 	Pagination struct {

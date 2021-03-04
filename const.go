@@ -22,6 +22,7 @@ const (
 	EndpointGetBasicRates              Endpoint = "/rates/find?currency_pair=%s"
 	EndpointGetDetailedRates           Endpoint = "/rates/detailed"
 	EndpointGetBeneficiaryRequirements Endpoint = "/reference/beneficiary_required_details"
+	EndpointGetPaymentPurposeCodes     Endpoint = "/reference/payment_purpose_codes"
 )
 
 type Environment string
