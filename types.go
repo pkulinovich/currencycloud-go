@@ -303,7 +303,7 @@ type (
 	GetPaymentPurposeCodesRequest struct {
 		Currency           string `json:"currency"`
 		BankAccountCountry string `json:"bank_account_country"`
-		EntityType         string `json:"entity_type"`
+		EntityType         string `json:"entity_type,omitempty"`
 	}
 
 	GetPaymentPurposeCodesResponse struct {
